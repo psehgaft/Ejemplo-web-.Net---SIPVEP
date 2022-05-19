@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="ArticuloSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Articulo)">
+        <MappingFragment StoreEntitySet="ArticuloSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio_compra" ColumnName="precio_compra" />
+          <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProvedorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Provedor)">
+        <MappingFragment StoreEntitySet="ProvedorSet">
+          <ScalarProperty Name="Id_provedor" ColumnName="Id_provedor" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="direccion_fiscal" ColumnName="direccion_fiscal" />
+          <ScalarProperty Name="cp_fiscal" ColumnName="cp_fiscal" />
+          <ScalarProperty Name="ciudad_fiscal" ColumnName="ciudad_fiscal" />
+          <ScalarProperty Name="estado_fiscal" ColumnName="estado_fiscal" />
+          <ScalarProperty Name="nombre_alias" ColumnName="nombre_alias" />
+          <ScalarProperty Name="correo_fiscal" ColumnName="correo_fiscal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo_contacto" ColumnName="correo_contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articulo_ProvedorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Articulo_Provedor)">
+        <MappingFragment StoreEntitySet="Articulo_ProvedorSet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ArticuloArticulo_Provedor" TypeName="Model.ArticuloArticulo_Provedor" StoreEntitySet="Articulo_ProvedorSet">
+      <EndProperty Name="Articulo">
+        <ScalarProperty Name="Id" ColumnName="Articulo_Id" />
+      </EndProperty>
+      <EndProperty Name="Articulo_Provedor">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProvedorArticulo_Provedor" TypeName="Model.ProvedorArticulo_Provedor" StoreEntitySet="Articulo_ProvedorSet">
+      <EndProperty Name="Provedor">
+        <ScalarProperty Name="Id_provedor" ColumnName="Provedor_Id_provedor" />
+      </EndProperty>
+      <EndProperty Name="Articulo_Provedor">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

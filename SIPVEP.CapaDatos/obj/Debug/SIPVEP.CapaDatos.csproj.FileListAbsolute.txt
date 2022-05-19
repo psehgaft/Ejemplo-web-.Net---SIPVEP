@@ -1,0 +1,12 @@
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\obj\Debug\SIPVEP.CapaDatos.csprojResolveAssemblyReference.cache
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\SIPVEP.CapaDatos.dll.config
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\SIPVEP.CapaDatos.dll
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\SIPVEP.CapaDatos.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\EntityFramework.dll
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\SIPVEP.Entidades.dll
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\SIPVEP.Entidades.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\EntityFramework.xml
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\obj\Debug\SIPVEP.CapaDatos.dll
+C:\SIPVEP\SIPVEP\SIPVEP.CapaDatos\obj\Debug\SIPVEP.CapaDatos.pdb

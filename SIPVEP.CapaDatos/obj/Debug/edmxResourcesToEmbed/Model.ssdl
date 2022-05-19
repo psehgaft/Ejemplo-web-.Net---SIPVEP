@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ArticuloSet" EntityType="Model.Store.ArticuloSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProvedorSet" EntityType="Model.Store.ProvedorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Articulo_ProvedorSet" EntityType="Model.Store.Articulo_ProvedorSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArticuloArticulo_Provedor" Association="Model.Store.ArticuloArticulo_Provedor">
+      <End Role="Articulo" EntitySet="ArticuloSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProvedorArticulo_Provedor" Association="Model.Store.ProvedorArticulo_Provedor">
+      <End Role="Provedor" EntitySet="ProvedorSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ArticuloSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sku" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="precio_compra" Type="float" Nullable="false" />
+    <Property Name="precio_venta" Type="float" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProvedorSet">
+    <Key>
+      <PropertyRef Name="Id_provedor" />
+    </Key>
+    <Property Name="Id_provedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rfc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="razon_social" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="direccion_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cp_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ciudad_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="estado_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nombre_alias" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_contacto" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Articulo_ProvedorSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="precio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Articulo_Id" Type="int" Nullable="false" />
+    <Property Name="Provedor_Id_provedor" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ArticuloArticulo_Provedor">
+    <End Role="Articulo" Type="Model.Store.ArticuloSet" Multiplicity="1" />
+    <End Role="Articulo_Provedor" Type="Model.Store.Articulo_ProvedorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articulo_Provedor">
+        <PropertyRef Name="Articulo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProvedorArticulo_Provedor">
+    <End Role="Provedor" Type="Model.Store.ProvedorSet" Multiplicity="1" />
+    <End Role="Articulo_Provedor" Type="Model.Store.Articulo_ProvedorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provedor">
+        <PropertyRef Name="Id_provedor" />
+      </Principal>
+      <Dependent Role="Articulo_Provedor">
+        <PropertyRef Name="Provedor_Id_provedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

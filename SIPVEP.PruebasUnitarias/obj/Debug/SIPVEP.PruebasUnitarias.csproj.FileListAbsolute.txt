@@ -1,0 +1,16 @@
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.PruebasUnitarias.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.PruebasUnitarias.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.CapaLogica.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.Entidades.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.CapaDatos.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\EntityFramework.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.CapaLogica.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.Entidades.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.CapaDatos.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\EntityFramework.xml
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\obj\Debug\SIPVEP.PruebasUnitarias.csprojResolveAssemblyReference.cache
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\obj\Debug\SIPVEP.PruebasUnitarias.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\obj\Debug\SIPVEP.PruebasUnitarias.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\SIPVEP.PruebasUnitarias.dll.config
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\EntityFramework.SqlServer.dll
+C:\SIPVEP\SIPVEP\SIPVEP.PruebasUnitarias\bin\Debug\EntityFramework.SqlServer.xml

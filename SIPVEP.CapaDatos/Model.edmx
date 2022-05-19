@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ArticuloSet" EntityType="Model.Store.ArticuloSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProvedorSet" EntityType="Model.Store.ProvedorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Articulo_ProvedorSet" EntityType="Model.Store.Articulo_ProvedorSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArticuloArticulo_Provedor" Association="Model.Store.ArticuloArticulo_Provedor">
+      <End Role="Articulo" EntitySet="ArticuloSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProvedorArticulo_Provedor" Association="Model.Store.ProvedorArticulo_Provedor">
+      <End Role="Provedor" EntitySet="ProvedorSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ArticuloSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sku" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="precio_compra" Type="float" Nullable="false" />
+    <Property Name="precio_venta" Type="float" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProvedorSet">
+    <Key>
+      <PropertyRef Name="Id_provedor" />
+    </Key>
+    <Property Name="Id_provedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rfc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="razon_social" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="direccion_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cp_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ciudad_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="estado_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nombre_alias" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_fiscal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo_contacto" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Articulo_ProvedorSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="precio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Articulo_Id" Type="int" Nullable="false" />
+    <Property Name="Provedor_Id_provedor" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ArticuloArticulo_Provedor">
+    <End Role="Articulo" Type="Model.Store.ArticuloSet" Multiplicity="1" />
+    <End Role="Articulo_Provedor" Type="Model.Store.Articulo_ProvedorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articulo_Provedor">
+        <PropertyRef Name="Articulo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProvedorArticulo_Provedor">
+    <End Role="Provedor" Type="Model.Store.ProvedorSet" Multiplicity="1" />
+    <End Role="Articulo_Provedor" Type="Model.Store.Articulo_ProvedorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provedor">
+        <PropertyRef Name="Id_provedor" />
+      </Principal>
+      <Dependent Role="Articulo_Provedor">
+        <PropertyRef Name="Provedor_Id_provedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticuloSet" EntityType="Model.Articulo" />
+          <EntitySet Name="ProvedorSet" EntityType="Model.Provedor" />
+          <EntitySet Name="Articulo_ProvedorSet" EntityType="Model.Articulo_Provedor" />
+          <AssociationSet Name="ArticuloArticulo_Provedor" Association="Model.ArticuloArticulo_Provedor">
+            <End Role="Articulo" EntitySet="ArticuloSet" />
+            <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProvedorArticulo_Provedor" Association="Model.ProvedorArticulo_Provedor">
+            <End Role="Provedor" EntitySet="ProvedorSet" />
+            <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Articulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sku" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="descripcion" Type="String" Nullable="true" MaxLength="200" />
+          <Property Name="precio_compra" Type="Double" Nullable="false" />
+          <Property Name="precio_venta" Type="Double" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Articulo_Provedor" Relationship="Model.ArticuloArticulo_Provedor" FromRole="Articulo" ToRole="Articulo_Provedor" />
+        </EntityType>
+        <EntityType Name="Provedor">
+          <Key>
+            <PropertyRef Name="Id_provedor" />
+          </Key>
+          <Property Name="Id_provedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rfc" Type="String" Nullable="false" />
+          <Property Name="razon_social" Type="String" Nullable="false" />
+          <Property Name="direccion_fiscal" Type="String" Nullable="false" />
+          <Property Name="cp_fiscal" Type="String" Nullable="false" />
+          <Property Name="ciudad_fiscal" Type="String" Nullable="false" />
+          <Property Name="estado_fiscal" Type="String" Nullable="false" />
+          <Property Name="nombre_alias" Type="String" Nullable="false" />
+          <Property Name="correo_fiscal" Type="String" Nullable="false" />
+          <Property Name="direccion" Type="String" Nullable="false" />
+          <Property Name="telefono" Type="String" Nullable="false" />
+          <Property Name="correo_contacto" Type="String" Nullable="false" />
+          <NavigationProperty Name="Articulo_Provedor" Relationship="Model.ProvedorArticulo_Provedor" FromRole="Provedor" ToRole="Articulo_Provedor" />
+        </EntityType>
+        <EntityType Name="Articulo_Provedor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <NavigationProperty Name="Articulo" Relationship="Model.ArticuloArticulo_Provedor" FromRole="Articulo_Provedor" ToRole="Articulo" />
+          <NavigationProperty Name="Provedor" Relationship="Model.ProvedorArticulo_Provedor" FromRole="Articulo_Provedor" ToRole="Provedor" />
+          <Property Name="precio" Type="String" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="ArticuloArticulo_Provedor">
+          <End Type="Model.Articulo" Role="Articulo" Multiplicity="1" />
+          <End Type="Model.Articulo_Provedor" Role="Articulo_Provedor" Multiplicity="*" />
+        </Association>
+        <Association Name="ProvedorArticulo_Provedor">
+          <End Type="Model.Provedor" Role="Provedor" Multiplicity="1" />
+          <End Type="Model.Articulo_Provedor" Role="Articulo_Provedor" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="ArticuloSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Articulo)">
+        <MappingFragment StoreEntitySet="ArticuloSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio_compra" ColumnName="precio_compra" />
+          <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProvedorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Provedor)">
+        <MappingFragment StoreEntitySet="ProvedorSet">
+          <ScalarProperty Name="Id_provedor" ColumnName="Id_provedor" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="direccion_fiscal" ColumnName="direccion_fiscal" />
+          <ScalarProperty Name="cp_fiscal" ColumnName="cp_fiscal" />
+          <ScalarProperty Name="ciudad_fiscal" ColumnName="ciudad_fiscal" />
+          <ScalarProperty Name="estado_fiscal" ColumnName="estado_fiscal" />
+          <ScalarProperty Name="nombre_alias" ColumnName="nombre_alias" />
+          <ScalarProperty Name="correo_fiscal" ColumnName="correo_fiscal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo_contacto" ColumnName="correo_contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articulo_ProvedorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Articulo_Provedor)">
+        <MappingFragment StoreEntitySet="Articulo_ProvedorSet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ArticuloArticulo_Provedor" TypeName="Model.ArticuloArticulo_Provedor" StoreEntitySet="Articulo_ProvedorSet">
+      <EndProperty Name="Articulo">
+        <ScalarProperty Name="Id" ColumnName="Articulo_Id" />
+      </EndProperty>
+      <EndProperty Name="Articulo_Provedor">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProvedorArticulo_Provedor" TypeName="Model.ProvedorArticulo_Provedor" StoreEntitySet="Articulo_ProvedorSet">
+      <EndProperty Name="Provedor">
+        <ScalarProperty Name="Id_provedor" ColumnName="Provedor_Id_provedor" />
+      </EndProperty>
+      <EndProperty Name="Articulo_Provedor">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

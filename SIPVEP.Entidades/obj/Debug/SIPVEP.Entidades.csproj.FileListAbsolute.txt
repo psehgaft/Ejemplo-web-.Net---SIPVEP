@@ -1,0 +1,5 @@
+C:\SIPVEP\SIPVEP\SIPVEP.Entidades\obj\Debug\SIPVEP.Entidades.csprojResolveAssemblyReference.cache
+C:\SIPVEP\SIPVEP\SIPVEP.Entidades\bin\Debug\SIPVEP.Entidades.dll
+C:\SIPVEP\SIPVEP\SIPVEP.Entidades\bin\Debug\SIPVEP.Entidades.pdb
+C:\SIPVEP\SIPVEP\SIPVEP.Entidades\obj\Debug\SIPVEP.Entidades.dll
+C:\SIPVEP\SIPVEP\SIPVEP.Entidades\obj\Debug\SIPVEP.Entidades.pdb

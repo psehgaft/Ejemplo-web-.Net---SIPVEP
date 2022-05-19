@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticuloSet" EntityType="Model.Articulo" />
+    <EntitySet Name="ProvedorSet" EntityType="Model.Provedor" />
+    <EntitySet Name="Articulo_ProvedorSet" EntityType="Model.Articulo_Provedor" />
+    <AssociationSet Name="ArticuloArticulo_Provedor" Association="Model.ArticuloArticulo_Provedor">
+      <End Role="Articulo" EntitySet="ArticuloSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProvedorArticulo_Provedor" Association="Model.ProvedorArticulo_Provedor">
+      <End Role="Provedor" EntitySet="ProvedorSet" />
+      <End Role="Articulo_Provedor" EntitySet="Articulo_ProvedorSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Articulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sku" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="String" Nullable="true" MaxLength="200" />
+    <Property Name="precio_compra" Type="Double" Nullable="false" />
+    <Property Name="precio_venta" Type="Double" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Articulo_Provedor" Relationship="Model.ArticuloArticulo_Provedor" FromRole="Articulo" ToRole="Articulo_Provedor" />
+  </EntityType>
+  <EntityType Name="Provedor">
+    <Key>
+      <PropertyRef Name="Id_provedor" />
+    </Key>
+    <Property Name="Id_provedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rfc" Type="String" Nullable="false" />
+    <Property Name="razon_social" Type="String" Nullable="false" />
+    <Property Name="direccion_fiscal" Type="String" Nullable="false" />
+    <Property Name="cp_fiscal" Type="String" Nullable="false" />
+    <Property Name="ciudad_fiscal" Type="String" Nullable="false" />
+    <Property Name="estado_fiscal" Type="String" Nullable="false" />
+    <Property Name="nombre_alias" Type="String" Nullable="false" />
+    <Property Name="correo_fiscal" Type="String" Nullable="false" />
+    <Property Name="direccion" Type="String" Nullable="false" />
+    <Property Name="telefono" Type="String" Nullable="false" />
+    <Property Name="correo_contacto" Type="String" Nullable="false" />
+    <NavigationProperty Name="Articulo_Provedor" Relationship="Model.ProvedorArticulo_Provedor" FromRole="Provedor" ToRole="Articulo_Provedor" />
+  </EntityType>
+  <EntityType Name="Articulo_Provedor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <NavigationProperty Name="Articulo" Relationship="Model.ArticuloArticulo_Provedor" FromRole="Articulo_Provedor" ToRole="Articulo" />
+    <NavigationProperty Name="Provedor" Relationship="Model.ProvedorArticulo_Provedor" FromRole="Articulo_Provedor" ToRole="Provedor" />
+    <Property Name="precio" Type="String" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="ArticuloArticulo_Provedor">
+    <End Type="Model.Articulo" Role="Articulo" Multiplicity="1" />
+    <End Type="Model.Articulo_Provedor" Role="Articulo_Provedor" Multiplicity="*" />
+  </Association>
+  <Association Name="ProvedorArticulo_Provedor">
+    <End Type="Model.Provedor" Role="Provedor" Multiplicity="1" />
+    <End Type="Model.Articulo_Provedor" Role="Articulo_Provedor" Multiplicity="*" />
+  </Association>
+</Schema>
